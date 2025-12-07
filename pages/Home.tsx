@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Truck, Sparkles, Clock, Shirt, CheckCircle2, MapPin, DollarSign, Camera } from 'lucide-react';
+import { Truck, Sparkles, Clock, Shirt, CheckCircle2, MapPin, DollarSign, Camera, Play, X, Star } from 'lucide-react';
 import SEOHead from '../components/SEOHead';
 
 const Home: React.FC = () => {
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
   const whatsappLink = "https://wa.me/5541996962349?text=Ol%C3%A1%20achei%20seu%20*site%20no%20Google!*";
 
   const neighborhoods = [
@@ -101,53 +102,85 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Intro / Value Prop */}
+      {/* Video & Value Prop Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-             <div className="relative">
-               <div className="absolute -top-4 -left-4 w-24 h-24 bg-accent/20 rounded-full blur-2xl"></div>
-               <img 
-                 src="https://images.unsplash.com/photo-1521656693074-0ef32e80a5d5?q=80&w=1200&auto=format&fit=crop" 
-                 alt="Pilhas de roupas dobradas perfeitamente" 
-                 className="rounded-2xl shadow-2xl relative z-10 border-4 border-white"
-               />
-               <div className="absolute -bottom-6 -right-6 bg-white p-4 rounded-xl shadow-lg z-20 hidden md:block">
-                 <div className="flex items-center gap-3">
-                   <div className="bg-green-100 p-2 rounded-full text-green-600">
-                     <Clock size={24} />
-                   </div>
-                   <div>
-                     <p className="text-xs text-gray-500 font-semibold uppercase">Entrega em</p>
-                     <p className="font-bold text-gray-900">Até 24 Horas*</p>
-                   </div>
-                 </div>
+             
+             {/* Video Trigger */}
+             <div className="relative group cursor-pointer w-full max-w-sm mx-auto md:max-w-full" onClick={() => setIsVideoOpen(true)}>
+               <div className="absolute -top-4 -left-4 w-24 h-24 bg-accent/20 rounded-full blur-2xl group-hover:bg-accent/40 transition-all"></div>
+               
+               <div className="relative overflow-hidden rounded-3xl shadow-2xl border-4 border-white aspect-[9/16] md:aspect-[4/5]">
+                  {/* Thumbnail Placeholder */}
+                  <img 
+                    src="https://images.unsplash.com/photo-1545173168-9f1947eebb8f?q=80&w=800&auto=format&fit=crop" 
+                    alt="Vídeo da Lavanderia Royal Clean" 
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  
+                  {/* Overlay Gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-primaryDark/80 via-primary/30 to-transparent"></div>
+                  
+                  {/* Play Button */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="relative">
+                       <div className="absolute inset-0 bg-white rounded-full animate-ping opacity-75"></div>
+                       <div className="bg-white text-primary rounded-full p-5 shadow-lg relative z-10 transform group-hover:scale-110 transition-transform">
+                          <Play size={32} fill="currentColor" className="ml-1" />
+                       </div>
+                    </div>
+                  </div>
+
+                  {/* Video Caption */}
+                  <div className="absolute bottom-6 left-0 w-full text-center px-4">
+                    <p className="text-white font-bold text-lg drop-shadow-md">Veja a Mágica Acontecer ✨</p>
+                    <p className="text-white/80 text-xs mt-1">Clique para assistir (1 min)</p>
+                  </div>
                </div>
              </div>
+
+             {/* Persuasive Text */}
              <div>
-               <h2 className="text-secondary font-bold uppercase tracking-wide text-sm mb-2">Royal Clean Lavanderias</h2>
-               <h3 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-6">
-                 Praticidade e Qualidade Perto de Você!
-               </h3>
+               <div className="inline-flex items-center gap-2 text-secondary font-bold uppercase tracking-wide text-sm mb-3 bg-secondary/10 px-3 py-1 rounded-full">
+                 <Star size={14} /> Resultado Comprovado
+               </div>
+               <h2 className="text-3xl md:text-5xl font-display font-bold text-gray-900 mb-6 leading-tight">
+                 Não é Milagre, é <span className="text-primary">Royal Clean!</span>
+               </h2>
                <p className="text-gray-600 text-lg mb-6 leading-relaxed">
-                 Se você busca uma lavanderia de confiança no <strong>Portão</strong>, a Royal Clean é a escolha ideal! Oferecemos limpeza profissional para roupas do dia a dia, peças delicadas e edredons.
+                 Cansado de roupas com cheiro de guardado ou manchas que não saem? <strong>Assista ao vídeo ao lado</strong> e veja como transformamos peças sem vida em roupas impecáveis, macias e com aquele perfume inesquecível.
                </p>
+               <p className="text-gray-900 font-semibold text-lg mb-8">
+                 Devolva a vida ao seu guarda-roupa agora mesmo. Você não vai acreditar no resultado!
+               </p>
+
                <ul className="space-y-4 mb-8">
                  {[
-                   'Produtos biodegradáveis de alta performance',
-                   'Processo de lavagem a seco certificado',
-                   'Passadoria impecável (Social e Dia a Dia)',
-                   'Atendimento personalizado via WhatsApp'
+                   'Tecnologia que renova as fibras do tecido',
+                   'Remoção de manchas difíceis sem estragar',
+                   'Edredons fofinhos e livres de ácaros'
                  ].map((item, idx) => (
                    <li key={idx} className="flex items-center gap-3 text-gray-700 font-medium">
-                     <CheckCircle2 className="text-primary flex-shrink-0" size={20} />
+                     <CheckCircle2 className="text-green-500 flex-shrink-0" size={20} />
                      {item}
                    </li>
                  ))}
                </ul>
-               <Link to="/sobre" className="text-primary font-bold hover:text-primaryDark inline-flex items-center group">
-                 Conheça nossa história <span className="ml-2 group-hover:translate-x-1 transition-transform">&rarr;</span>
-               </Link>
+               
+               <div className="flex flex-col sm:flex-row gap-4">
+                 <a 
+                   href={whatsappLink} 
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   className="bg-gradient-to-r from-primary to-secondary text-white font-bold py-4 px-8 rounded-full shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all flex items-center justify-center gap-2"
+                 >
+                   Quero Minhas Roupas Assim! <Sparkles size={18} />
+                 </a>
+                 <Link to="/sobre" className="px-8 py-4 rounded-full border-2 border-gray-200 text-gray-600 font-bold hover:border-primary hover:text-primary transition-colors text-center">
+                   Conhecer a Lavanderia
+                 </Link>
+               </div>
              </div>
           </div>
         </div>
@@ -353,6 +386,33 @@ const Home: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Video Modal Overlay */}
+      {isVideoOpen && (
+        <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/90 backdrop-blur-md animate-fade-in-up">
+          <div className="relative w-full max-w-4xl bg-black rounded-2xl overflow-hidden shadow-2xl flex flex-col md:flex-row max-h-[90vh]">
+            <button 
+              onClick={() => setIsVideoOpen(false)}
+              className="absolute top-4 right-4 z-50 p-2 bg-white/10 hover:bg-white/20 rounded-full text-white transition-colors"
+            >
+              <X size={24} />
+            </button>
+            
+            <div className="w-full flex items-center justify-center bg-black aspect-[9/16] md:aspect-video h-[80vh] md:h-auto">
+              <iframe 
+                width="100%" 
+                height="100%" 
+                src="https://www.youtube.com/embed/svb8YCMy0vY?autoplay=1&rel=0&modestbranding=1" 
+                title="Royal Clean Lavanderia Video" 
+                frameBorder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowFullScreen
+                className="w-full h-full"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 };
