@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { Truck, Sparkles, Clock, Shirt, CheckCircle2, MapPin, DollarSign, Camera, Play, X, Star } from 'lucide-react';
+import { Truck, Sparkles, Shirt, CheckCircle2, MapPin, DollarSign, Camera, Star, ArrowRight } from 'lucide-react';
 import SEOHead from '../components/SEOHead';
 
 const Home: React.FC = () => {
-  const [isVideoOpen, setIsVideoOpen] = useState(false);
   const whatsappLink = "https://wa.me/5541996962349?text=Ol%C3%A1%20achei%20seu%20*site%20no%20Google!*";
 
   const neighborhoods = [
@@ -107,37 +106,30 @@ const Home: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
              
-             {/* Video Trigger */}
-             <div className="relative group cursor-pointer w-full max-w-sm mx-auto md:max-w-full" onClick={() => setIsVideoOpen(true)}>
-               <div className="absolute -top-4 -left-4 w-24 h-24 bg-accent/20 rounded-full blur-2xl group-hover:bg-accent/40 transition-all"></div>
-               
-               <div className="relative overflow-hidden rounded-3xl shadow-2xl border-4 border-white aspect-[9/16] md:aspect-[4/5]">
-                  {/* Thumbnail Placeholder */}
-                  <img 
-                    src="https://images.unsplash.com/photo-1545173168-9f1947eebb8f?q=80&w=800&auto=format&fit=crop" 
-                    alt="Vídeo da Lavanderia Royal Clean" 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
+             {/* Smartphone Mockup Video Container */}
+             <div className="relative flex justify-center">
+                <div className="relative mx-auto border-gray-900 bg-gray-900 border-[14px] rounded-[2.5rem] h-[600px] w-[340px] shadow-2xl flex flex-col items-center">
+                  {/* Notch / Camera / Sensors */}
+                  <div className="h-[32px] w-[3px] bg-gray-800 absolute -start-[17px] top-[72px] rounded-s-lg"></div>
+                  <div className="h-[46px] w-[3px] bg-gray-800 absolute -start-[17px] top-[124px] rounded-s-lg"></div>
+                  <div className="h-[46px] w-[3px] bg-gray-800 absolute -start-[17px] top-[178px] rounded-s-lg"></div>
+                  <div className="h-[64px] w-[3px] bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-lg"></div>
                   
-                  {/* Overlay Gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-primaryDark/80 via-primary/30 to-transparent"></div>
-                  
-                  {/* Play Button */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="relative">
-                       <div className="absolute inset-0 bg-white rounded-full animate-ping opacity-75"></div>
-                       <div className="bg-white text-primary rounded-full p-5 shadow-lg relative z-10 transform group-hover:scale-110 transition-transform">
-                          <Play size={32} fill="currentColor" className="ml-1" />
-                       </div>
-                    </div>
+                  {/* Screen Content */}
+                  <div className="rounded-[2rem] overflow-hidden w-full h-full bg-black relative">
+                     <iframe 
+                      className="w-full h-full"
+                      src="https://www.youtube.com/embed/svb8YCMy0vY?rel=0&modestbranding=1&playsinline=1" 
+                      title="Royal Clean YouTube Short" 
+                      frameBorder="0" 
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                      allowFullScreen
+                    ></iframe>
                   </div>
-
-                  {/* Video Caption */}
-                  <div className="absolute bottom-6 left-0 w-full text-center px-4">
-                    <p className="text-white font-bold text-lg drop-shadow-md">Veja a Mágica Acontecer ✨</p>
-                    <p className="text-white/80 text-xs mt-1">Clique para assistir (1 min)</p>
-                  </div>
-               </div>
+                </div>
+                
+                {/* Decorative Elements around phone */}
+                <div className="absolute -z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[380px] h-[640px] bg-gradient-to-tr from-primary/30 to-accent/30 rounded-full blur-3xl opacity-50"></div>
              </div>
 
              {/* Persuasive Text */}
@@ -149,7 +141,7 @@ const Home: React.FC = () => {
                  Não é Milagre, é <span className="text-primary">Royal Clean!</span>
                </h2>
                <p className="text-gray-600 text-lg mb-6 leading-relaxed">
-                 Cansado de roupas com cheiro de guardado ou manchas que não saem? <strong>Assista ao vídeo ao lado</strong> e veja como transformamos peças sem vida em roupas impecáveis, macias e com aquele perfume inesquecível.
+                 Cansado de roupas com cheiro de guardado ou manchas que não saem? <strong>Dê o play ao lado</strong> e veja como transformamos peças sem vida em roupas impecáveis, macias e com aquele perfume inesquecível.
                </p>
                <p className="text-gray-900 font-semibold text-lg mb-8">
                  Devolva a vida ao seu guarda-roupa agora mesmo. Você não vai acreditar no resultado!
@@ -386,33 +378,6 @@ const Home: React.FC = () => {
           </div>
         </div>
       </section>
-
-      {/* Video Modal Overlay */}
-      {isVideoOpen && (
-        <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/90 backdrop-blur-md animate-fade-in-up">
-          <div className="relative w-full max-w-4xl bg-black rounded-2xl overflow-hidden shadow-2xl flex flex-col md:flex-row max-h-[90vh]">
-            <button 
-              onClick={() => setIsVideoOpen(false)}
-              className="absolute top-4 right-4 z-50 p-2 bg-white/10 hover:bg-white/20 rounded-full text-white transition-colors"
-            >
-              <X size={24} />
-            </button>
-            
-            <div className="w-full flex items-center justify-center bg-black aspect-[9/16] md:aspect-video h-[80vh] md:h-auto">
-              <iframe 
-                width="100%" 
-                height="100%" 
-                src="https://www.youtube.com/embed/svb8YCMy0vY?autoplay=1&rel=0&modestbranding=1" 
-                title="Royal Clean Lavanderia Video" 
-                frameBorder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowFullScreen
-                className="w-full h-full"
-              ></iframe>
-            </div>
-          </div>
-        </div>
-      )}
     </>
   );
 };
