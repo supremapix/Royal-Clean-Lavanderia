@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Truck, Sparkles, Clock, Shirt, CheckCircle2, MapPin, DollarSign } from 'lucide-react';
+import { Truck, Sparkles, Clock, Shirt, CheckCircle2, MapPin, DollarSign, Camera } from 'lucide-react';
 import SEOHead from '../components/SEOHead';
 
 const Home: React.FC = () => {
@@ -23,6 +23,15 @@ const Home: React.FC = () => {
     { name: 'Fanny', slug: 'fanny' },
     { name: 'Fazendinha', slug: 'fazendinha' },
     { name: 'Campo Comprido', slug: 'campo-comprido' }
+  ];
+
+  const galleryImages = [
+    { url: "https://www.royalcleanlavanderia.top/assets/images/lavanderia-royal-clean-no-novo-mundo-perto-de-min.png", title: "Unidade Novo Mundo" },
+    { url: "https://www.royalcleanlavanderia.top/assets/images/lavanderia-portao-royal-clean.png", title: "Unidade Portão" },
+    { url: "https://www.royalcleanlavanderia.top/assets/images/lavanderias-no-muffato-portao-capao-raso-royal-clean.png", title: "Próximo ao Muffato" },
+    { url: "https://www.royalcleanlavanderia.top/assets/images/lavanderias-no-muffato-portao-novo-mundo-royal-clean.png", title: "Atendimento Portão e Novo Mundo" },
+    { url: "https://www.royalcleanlavanderia.top/assets/images/lavanderia-muffato-portao-royal-clean.png", title: "Royal Clean - Muffato Portão" },
+    { url: "https://www.royalcleanlavanderia.top/assets/images/lavanderia-portao-royan-clean.jpeg", title: "Quarta da Promo" }
   ];
 
   return (
@@ -246,27 +255,78 @@ const Home: React.FC = () => {
       </section>
 
       {/* Neighborhoods */}
-      <section className="py-20 bg-gradient-to-br from-primary to-primaryDark text-white">
-        <div className="container mx-auto px-4 text-center">
-          <div className="inline-block p-3 rounded-full bg-white/10 mb-6">
+      <section className="py-20 bg-gradient-to-br from-primary to-primaryDark text-white relative overflow-hidden">
+        {/* Decorative background elements */}
+        <div className="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 bg-white/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-64 h-64 bg-accent/10 rounded-full blur-3xl"></div>
+        
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <div className="inline-block p-4 rounded-full bg-white/10 mb-6 shadow-lg backdrop-blur-sm border border-white/10">
             <MapPin size={32} className="text-accent" />
           </div>
-          <h2 className="text-3xl font-display font-bold mb-6">Atendemos Estes Bairros</h2>
-          <p className="max-w-2xl mx-auto text-blue-100 mb-10">
+          <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">Atendemos Estes Bairros</h2>
+          <p className="max-w-2xl mx-auto text-blue-100 mb-12 text-lg">
             Além do Portão, nossa frota de coleta atende com rapidez as seguintes regiões de Curitiba. 
-            Clique no seu bairro para saber mais:
+            Clique no seu bairro para saber mais sobre nossos serviços dedicados.
           </p>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
             {neighborhoods.map((bairro, idx) => (
               <Link 
                 key={idx} 
                 to={`/bairros/${bairro.slug}`}
-                className="bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-lg p-3 text-sm font-medium transition-all hover:-translate-y-1 hover:shadow-lg border border-white/5 block"
+                className="group relative overflow-hidden bg-white/10 backdrop-blur-md rounded-xl p-6 transition-all duration-300 hover:bg-white hover:text-primary hover:-translate-y-2 hover:shadow-xl border border-white/10 flex flex-col items-center justify-center gap-3"
               >
-                📍 {bairro.name}
+                <div className="absolute inset-0 bg-gradient-to-br from-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div className="p-3 bg-white/20 rounded-full group-hover:bg-primary/10 transition-colors">
+                  <MapPin size={24} className="text-accent group-hover:text-primary transition-colors" />
+                </div>
+                <span className="font-bold text-lg relative z-10">{bairro.name}</span>
+                <span className="text-xs text-blue-200 group-hover:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity absolute bottom-2">Ver serviços</span>
               </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery Section */}
+      <section id="galeria" className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center justify-center p-3 bg-primary/10 text-primary rounded-full mb-4">
+              <Camera size={24} />
+            </div>
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mb-4">Conheça Nossa Estrutura</h2>
+            <div className="w-20 h-1 bg-secondary mx-auto rounded-full mb-4"></div>
+            <p className="text-gray-600 max-w-2xl mx-auto">Equipamentos modernos, ambiente organizado e uma equipe dedicada para garantir o melhor cuidado com suas roupas.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {galleryImages.map((img, idx) => (
+              <div key={idx} className="group relative rounded-2xl overflow-hidden shadow-lg aspect-video bg-gray-200 cursor-pointer">
+                <img 
+                  src={img.url} 
+                  alt={img.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-80 transition-opacity duration-300"></div>
+                <div className="absolute bottom-0 left-0 p-6 w-full transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                  <h3 className="text-white font-bold text-lg border-l-4 border-secondary pl-3">{img.title}</h3>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          <div className="text-center mt-12">
+            <a 
+              href="https://www.instagram.com/royalclean" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-primary font-bold hover:text-secondary inline-flex items-center gap-2 transition-colors border-b-2 border-transparent hover:border-secondary pb-1"
+            >
+              Ver mais no Instagram &rarr;
+            </a>
           </div>
         </div>
       </section>

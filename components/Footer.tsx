@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { MapPin, Phone, Clock, Send, Facebook, Instagram, MessageCircle, ChevronRight, ShieldCheck } from 'lucide-react';
+import { MapPin, Phone, Clock, Send, Facebook, Instagram, MessageCircle, ChevronRight, ShieldCheck, QrCode } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +10,8 @@ const Footer: React.FC = () => {
   });
 
   const whatsappLink = "https://wa.me/5541996962349?text=Ol%C3%A1%20achei%20seu%20*site%20no%20Google!*";
+  // Encode the URL for the QR code API
+  const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(whatsappLink)}&color=000000&bgcolor=ffffff&margin=5`;
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -119,9 +121,11 @@ const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Column 3: WhatsApp Form (5 cols) */}
-          <div className="lg:col-span-5">
-            <div className="bg-white/5 backdrop-blur-sm p-6 rounded-2xl border border-white/10 shadow-2xl relative overflow-hidden">
+          {/* Column 3: WhatsApp Form & QR Code (5 cols) */}
+          <div className="lg:col-span-5 flex flex-col md:flex-row gap-6">
+            
+            {/* Form */}
+            <div className="flex-1 bg-white/5 backdrop-blur-sm p-6 rounded-2xl border border-white/10 shadow-2xl relative overflow-hidden">
                {/* WhatsApp Background Icon */}
                <div className="absolute -right-6 -bottom-6 text-green-500/10 pointer-events-none">
                  <MessageCircle size={150} />
@@ -188,6 +192,38 @@ const Footer: React.FC = () => {
                 </form>
               </div>
             </div>
+
+            {/* QR Code - Side for desktop, Bottom for mobile */}
+            <div className="hidden lg:flex flex-col items-center justify-center space-y-3 bg-white/10 rounded-2xl p-4 backdrop-blur-sm border border-white/5 w-[160px] h-fit self-end">
+              <div className="bg-white p-2 rounded-lg shadow-inner">
+                <img 
+                  src={qrCodeUrl} 
+                  alt="QR Code WhatsApp Royal Clean" 
+                  className="w-full h-auto mix-blend-multiply"
+                  width="120"
+                  height="120"
+                />
+              </div>
+              <div className="text-center">
+                 <p className="text-xs font-bold text-white flex items-center justify-center gap-1">
+                   <QrCode size={12} /> Escaneie
+                 </p>
+                 <p className="text-[10px] text-gray-400">Para agendar via WhatsApp</p>
+              </div>
+            </div>
+
+            {/* Mobile QR Code (Optional/Hidden to save space or shown below) */}
+            <div className="lg:hidden flex items-center justify-center mt-4">
+               <div className="bg-white p-2 rounded-lg shadow-lg">
+                  <img 
+                    src={qrCodeUrl} 
+                    alt="QR Code WhatsApp" 
+                    width="100" 
+                    height="100"
+                  />
+               </div>
+            </div>
+            
           </div>
         </div>
 
