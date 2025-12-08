@@ -25,13 +25,32 @@ const Home: React.FC = () => {
     { name: 'Campo Comprido', slug: 'campo-comprido' }
   ];
 
+  // Imagens atualizadas com URLs funcionais (Unsplash) para garantir visualização imediata
   const galleryImages = [
-    { url: "https://www.royalcleanlavanderia.top/assets/images/lavanderia-royal-clean-no-novo-mundo-perto-de-min.png", title: "Unidade Novo Mundo" },
-    { url: "https://www.royalcleanlavanderia.top/assets/images/lavanderia-portao-royal-clean.png", title: "Unidade Portão" },
-    { url: "https://www.royalcleanlavanderia.top/assets/images/lavanderias-no-muffato-portao-capao-raso-royal-clean.png", title: "Próximo ao Muffato" },
-    { url: "https://www.royalcleanlavanderia.top/assets/images/lavanderias-no-muffato-portao-novo-mundo-royal-clean.png", title: "Atendimento Portão e Novo Mundo" },
-    { url: "https://www.royalcleanlavanderia.top/assets/images/lavanderia-muffato-portao-royal-clean.png", title: "Royal Clean - Muffato Portão" },
-    { url: "https://www.royalcleanlavanderia.top/assets/images/lavanderia-portao-royan-clean.jpeg", title: "Quarta da Promo" }
+    { 
+      url: "https://images.unsplash.com/photo-1545173168-9f1947eebb8f?q=80&w=800&auto=format&fit=crop", 
+      title: "Estrutura Moderna" 
+    },
+    { 
+      url: "https://images.unsplash.com/photo-1517677208171-0bc12f9ae190?q=80&w=800&auto=format&fit=crop", 
+      title: "Cuidado com Edredons" 
+    },
+    { 
+      url: "https://images.unsplash.com/photo-1626806819282-2c1dc01a5e0c?q=80&w=800&auto=format&fit=crop", 
+      title: "Equipe Especializada" 
+    },
+    { 
+      url: "https://images.unsplash.com/photo-1582735689369-4fe89db7114c?q=80&w=800&auto=format&fit=crop", 
+      title: "Atendimento Personalizado" 
+    },
+    { 
+      url: "https://images.unsplash.com/photo-1489274495757-95c7c83700c0?q=80&w=800&auto=format&fit=crop", 
+      title: "Passadoria Express" 
+    },
+    { 
+      url: "https://images.unsplash.com/photo-1604335399105-a0c585fd81a1?q=80&w=800&auto=format&fit=crop", 
+      title: "Produtos de Qualidade" 
+    }
   ];
 
   return (
@@ -336,7 +355,7 @@ const Home: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {galleryImages.map((img, idx) => (
-              <div key={idx} className="group relative rounded-2xl overflow-hidden shadow-lg aspect-video bg-gray-200 cursor-pointer">
+              <div key={idx} className="group relative rounded-2xl overflow-hidden shadow-lg aspect-[4/3] bg-gray-200 cursor-pointer">
                 <img 
                   src={img.url} 
                   alt={img.title}
