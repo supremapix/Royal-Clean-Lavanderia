@@ -25,31 +25,19 @@ const Home: React.FC = () => {
     { name: 'Campo Comprido', slug: 'campo-comprido' }
   ];
 
-  // Imagens atualizadas com URLs funcionais (Unsplash) para garantir visualização imediata
+  // Configuração da galeria com as imagens fornecidas
   const galleryImages = [
     { 
       url: "assets/images/promo-quarta.jpg", 
-      title: "Promoção da Semana" 
+      title: "Quarta da Promo" 
     },
     { 
       url: "assets/images/atendimento-homem.jpg", 
-      title: "Cuidado Especial" 
-    },
-    { 
-      url: "assets/images/atendimento-cesto.jpg", 
-      title: "Processo Profissional" 
-    },
-    { 
-      url: "https://images.unsplash.com/photo-1582735689369-4fe89db7114c?q=80&w=800&auto=format&fit=crop", 
       title: "Atendimento Personalizado" 
     },
     { 
-      url: "https://images.unsplash.com/photo-1489274495757-95c7c83700c0?q=80&w=800&auto=format&fit=crop", 
-      title: "Passadoria Express" 
-    },
-    { 
-      url: "https://images.unsplash.com/photo-1604335399105-a0c585fd81a1?q=80&w=800&auto=format&fit=crop", 
-      title: "Produtos de Qualidade" 
+      url: "assets/images/atendimento-mulher.jpg", 
+      title: "Equipe Especializada" 
     }
   ];
 
@@ -355,7 +343,7 @@ const Home: React.FC = () => {
                   <MapPin size={24} className="text-accent group-hover:text-primary transition-colors" />
                 </div>
                 <span className="font-bold text-lg relative z-10">{bairro.name}</span>
-                <span className="text-xs text-blue-200 group-hover:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity absolute bottom-2">Ver serviços</span>
+                <span className="text-xs text-blue-200 group-hover:text-gray-50 opacity-0 group-hover:opacity-100 transition-opacity absolute bottom-2">Ver serviços</span>
               </Link>
             ))}
           </div>
@@ -374,13 +362,14 @@ const Home: React.FC = () => {
             <p className="text-gray-600 max-w-2xl mx-auto">Equipamentos modernos, ambiente organizado e uma equipe dedicada para garantir o melhor cuidado com suas roupas.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Grid com 3 colunas para as 3 imagens específicas */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {galleryImages.map((img, idx) => (
               <div key={idx} className="group relative rounded-2xl overflow-hidden shadow-lg aspect-[4/5] bg-gray-200 cursor-pointer">
                 <img 
                   src={img.url} 
                   alt={img.title}
-                  className="w-full h-full object-contain bg-gray-100 transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-full object-contain bg-white transition-transform duration-700 group-hover:scale-105"
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 transition-opacity duration-300"></div>
