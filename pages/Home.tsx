@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Truck, Sparkles, Shirt, CheckCircle2, MapPin, DollarSign, Camera, Star, ArrowRight } from 'lucide-react';
+import { Truck, Sparkles, Shirt, CheckCircle2, MapPin, DollarSign, Camera, Star, ArrowRight, Quote } from 'lucide-react';
 import SEOHead from '../components/SEOHead';
 
 const Home: React.FC = () => {
@@ -28,16 +28,16 @@ const Home: React.FC = () => {
   // Imagens atualizadas com URLs funcionais (Unsplash) para garantir visualização imediata
   const galleryImages = [
     { 
-      url: "https://images.unsplash.com/photo-1545173168-9f1947eebb8f?q=80&w=800&auto=format&fit=crop", 
-      title: "Estrutura Moderna" 
+      url: "assets/images/promo-quarta.jpg", 
+      title: "Promoção da Semana" 
     },
     { 
-      url: "https://images.unsplash.com/photo-1517677208171-0bc12f9ae190?q=80&w=800&auto=format&fit=crop", 
-      title: "Cuidado com Edredons" 
+      url: "assets/images/atendimento-homem.jpg", 
+      title: "Cuidado Especial" 
     },
     { 
-      url: "https://images.unsplash.com/photo-1626806819282-2c1dc01a5e0c?q=80&w=800&auto=format&fit=crop", 
-      title: "Equipe Especializada" 
+      url: "assets/images/atendimento-cesto.jpg", 
+      title: "Processo Profissional" 
     },
     { 
       url: "https://images.unsplash.com/photo-1582735689369-4fe89db7114c?q=80&w=800&auto=format&fit=crop", 
@@ -50,6 +50,27 @@ const Home: React.FC = () => {
     { 
       url: "https://images.unsplash.com/photo-1604335399105-a0c585fd81a1?q=80&w=800&auto=format&fit=crop", 
       title: "Produtos de Qualidade" 
+    }
+  ];
+
+  const testimonials = [
+    {
+      name: "Fernanda Oliveira",
+      location: "Portão",
+      text: "Simplesmente a melhor lavanderia do bairro! O atendimento é nota 10 e as roupas voltam com um perfume maravilhoso. Virei cliente fiel.",
+      stars: 5
+    },
+    {
+      name: "Ricardo Alves",
+      location: "Água Verde",
+      text: "A praticidade do delivery me salvou. Buscam e trazem no horário combinado. As camisas sociais ficam impecáveis para o trabalho, sem nenhum vinco.",
+      stars: 5
+    },
+    {
+      name: "Juliana Mendes",
+      location: "Vila Izabel",
+      text: "Recuperei um edredom que achava que estava perdido. Tiraram todas as manchas e ficou super macio, parecendo novo. Recomendo demais!",
+      stars: 5
     }
   ];
 
@@ -355,14 +376,14 @@ const Home: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {galleryImages.map((img, idx) => (
-              <div key={idx} className="group relative rounded-2xl overflow-hidden shadow-lg aspect-[4/3] bg-gray-200 cursor-pointer">
+              <div key={idx} className="group relative rounded-2xl overflow-hidden shadow-lg aspect-[4/5] bg-gray-200 cursor-pointer">
                 <img 
                   src={img.url} 
                   alt={img.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="w-full h-full object-contain bg-gray-100 transition-transform duration-700 group-hover:scale-105"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-80 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 transition-opacity duration-300"></div>
                 <div className="absolute bottom-0 left-0 p-6 w-full transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
                   <h3 className="text-white font-bold text-lg border-l-4 border-secondary pl-3">{img.title}</h3>
                 </div>
@@ -379,6 +400,53 @@ const Home: React.FC = () => {
             >
               Ver mais no Instagram &rarr;
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-20 bg-white relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute top-0 left-0 w-full h-full opacity-30 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center justify-center p-3 bg-accent/20 text-accent rounded-full mb-4">
+              <Star size={24} className="fill-accent text-accent" />
+            </div>
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-4">Depoimentos</h2>
+            <div className="w-20 h-1 bg-primary mx-auto rounded-full mb-4"></div>
+            <p className="text-gray-600 max-w-2xl mx-auto">Veja o que nossos clientes estão dizendo sobre a experiência Royal Clean.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, idx) => (
+              <div key={idx} className="bg-light p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 relative border border-gray-100 hover:-translate-y-2">
+                <Quote size={40} className="text-primary/20 absolute top-6 right-6" />
+                
+                <div className="flex gap-1 mb-4">
+                  {[...Array(testimonial.stars)].map((_, i) => (
+                    <Star key={i} size={18} className="fill-accent text-accent" />
+                  ))}
+                </div>
+                
+                <p className="text-gray-700 italic mb-6 leading-relaxed relative z-10">
+                  "{testimonial.text}"
+                </p>
+                
+                <div className="flex items-center gap-3 mt-auto">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold text-sm">
+                    {testimonial.name.charAt(0)}
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-gray-900 text-sm">{testimonial.name}</h4>
+                    <span className="text-xs text-primary font-medium flex items-center gap-1">
+                      <MapPin size={10} /> {testimonial.location}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
