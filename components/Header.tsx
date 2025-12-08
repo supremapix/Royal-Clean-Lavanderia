@@ -29,7 +29,7 @@ const Header: React.FC = () => {
   return (
     <>
       {/* Top Contact Bar */}
-      <div className="bg-secondary text-white py-2 text-center text-sm font-bold hidden md:block">
+      <div className="bg-secondary text-white py-2 text-center text-sm font-bold hidden md:block z-50 relative">
         <div className="container mx-auto px-4 flex justify-between items-center">
            <span>Royal Clean Lavanderias – Praticidade e Qualidade Perto de Você!</span>
            <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="hover:underline flex items-center gap-1">
@@ -44,19 +44,25 @@ const Header: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
             
-            {/* Logo */}
-            <Link to="/" className="flex items-center space-x-2 group">
-              <div className="bg-gradient-to-br from-primary to-primaryDark p-2.5 rounded-lg text-white shadow-lg group-hover:shadow-primary/30 transition-all">
-                <Shirt size={28} strokeWidth={2} />
+            {/* Logo Animated */}
+            <Link to="/" className="flex items-center space-x-2 group animate-slide-down">
+              <div className="relative overflow-hidden bg-gradient-to-br from-primary to-primaryDark p-2.5 rounded-lg text-white shadow-lg group-hover:shadow-primary/30 transition-all duration-300 transform group-hover:scale-105">
+                {/* Shine effect */}
+                <div className="absolute top-0 left-0 w-full h-full bg-white/20 -skew-x-12 -translate-x-full group-hover:animate-shimmer"></div>
+                
+                {/* Icon with swing animation on hover */}
+                <div className="group-hover:animate-swing origin-top">
+                  <Shirt size={28} strokeWidth={2} />
+                </div>
               </div>
               <div className="flex flex-col">
-                <span className="text-2xl font-display font-bold text-gray-900 leading-none">Royal</span>
-                <span className="text-xs font-bold text-secondary uppercase tracking-[0.15em]">Clean</span>
+                <span className="text-2xl font-display font-bold text-gray-900 leading-none group-hover:text-primary transition-colors">Royal</span>
+                <span className="text-xs font-bold text-secondary uppercase tracking-[0.15em] group-hover:tracking-[0.2em] transition-all">Clean</span>
               </div>
             </Link>
 
             {/* Desktop Nav */}
-            <nav className="hidden md:flex space-x-1 items-center">
+            <nav className="hidden md:flex space-x-1 items-center animate-slide-down [animation-delay:200ms] opacity-0 fill-mode-forwards">
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
@@ -96,7 +102,7 @@ const Header: React.FC = () => {
 
         {/* Mobile Nav */}
         {isOpen && (
-          <div className="md:hidden bg-white border-t border-gray-100 absolute w-full shadow-xl">
+          <div className="md:hidden bg-white border-t border-gray-100 absolute w-full shadow-xl animate-fade-in-up">
             <div className="px-4 pt-2 pb-6 space-y-1 sm:px-3">
               {navLinks.map((link) => (
                 <Link

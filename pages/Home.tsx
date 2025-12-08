@@ -41,25 +41,33 @@ const Home: React.FC = () => {
         description="Royal Clean Lavanderias. Praticidade e Qualidade Perto de Você! Coleta e entrega no Portão, Água Verde e região. Agende via WhatsApp." 
       />
       
-      {/* Hero Section */}
-      <section className="relative min-h-[650px] flex items-center bg-gray-900">
-        <div className="absolute inset-0 z-0">
+      {/* Hero Section Animated */}
+      <section className="relative min-h-[650px] flex items-center bg-gray-900 overflow-hidden">
+        {/* Animated Background (Ken Burns Effect) */}
+        <div className="absolute inset-0 z-0 overflow-hidden">
           <img 
             src="https://images.unsplash.com/photo-1604176354204-9268737828e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" 
             alt="Royal Clean Lavanderia Profissional" 
-            className="w-full h-full object-cover opacity-30"
+            className="w-full h-full object-cover opacity-40 animate-zoom-slow"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-primaryDark/90 to-primary/80 mix-blend-multiply"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-primaryDark/95 via-primaryDark/80 to-primary/60 mix-blend-multiply"></div>
+        </div>
+
+        {/* Floating Decorative Elements (Bubbles) */}
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <div className="absolute top-20 right-10 w-20 h-20 bg-white/5 rounded-full blur-xl animate-float"></div>
+          <div className="absolute bottom-40 left-10 w-32 h-32 bg-accent/10 rounded-full blur-xl animate-float-delayed"></div>
+          <div className="absolute top-1/2 right-1/3 w-16 h-16 bg-blue-300/10 rounded-full blur-lg animate-float-slow"></div>
         </div>
         
         <div className="container mx-auto px-4 relative z-10 text-white">
-          <div className="max-w-3xl animate-fade-in-up">
-            <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-1.5 rounded-full text-sm font-semibold mb-6 border border-white/20">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full text-sm font-semibold mb-6 border border-white/20 animate-fade-in-up [animation-delay:100ms] opacity-0 fill-mode-forwards">
               <span className="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
               Atendemos Curitiba e Região
             </div>
             
-            <h1 className="text-4xl md:text-6xl font-display font-bold leading-tight mb-6">
+            <h1 className="text-4xl md:text-6xl font-display font-bold leading-tight mb-6 animate-fade-in-up [animation-delay:300ms] opacity-0 fill-mode-forwards">
               Sua roupa merece um <span className="text-accent relative inline-block">
                 tratamento real
                 <svg className="absolute w-full h-3 -bottom-1 left-0 text-accent/50" viewBox="0 0 100 10" preserveAspectRatio="none">
@@ -68,24 +76,24 @@ const Home: React.FC = () => {
               </span>
             </h1>
             
-            <p className="text-lg md:text-xl mb-10 text-gray-200 leading-relaxed max-w-2xl">
+            <p className="text-lg md:text-xl mb-10 text-gray-200 leading-relaxed max-w-2xl animate-fade-in-up [animation-delay:500ms] opacity-0 fill-mode-forwards">
               <strong>Royal Clean Lavanderias</strong> – Praticidade e Qualidade Perto de Você!
               Coleta e entrega gratuita para o bairro Portão e arredores.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up [animation-delay:700ms] opacity-0 fill-mode-forwards">
               <a 
                 href={whatsappLink} 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold py-4 px-8 rounded-full text-center transition-all transform hover:scale-105 shadow-lg flex items-center justify-center gap-2"
+                className="bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold py-4 px-8 rounded-full text-center transition-all transform hover:scale-105 shadow-lg flex items-center justify-center gap-2 hover:shadow-green-500/30 ring-4 ring-transparent hover:ring-green-400/30"
               >
-                <Truck size={20} />
+                <Truck size={20} className="animate-bounce" />
                 Agendar Coleta
               </a>
               <a 
                 href="#tabela-precos" 
-                className="bg-transparent border-2 border-white hover:bg-white hover:text-primaryDark text-white font-bold py-4 px-8 rounded-full text-center transition-all flex items-center justify-center"
+                className="bg-white/10 backdrop-blur-sm border-2 border-white/30 hover:bg-white hover:text-primaryDark text-white font-bold py-4 px-8 rounded-full text-center transition-all flex items-center justify-center hover:shadow-lg hover:shadow-white/20"
               >
                 Ver Tabela de Preços
               </a>
@@ -108,7 +116,7 @@ const Home: React.FC = () => {
              
              {/* Smartphone Mockup Video Container */}
              <div className="relative flex justify-center">
-                <div className="relative mx-auto border-gray-900 bg-gray-900 border-[14px] rounded-[2.5rem] h-[600px] w-[340px] shadow-2xl flex flex-col items-center">
+                <div className="relative mx-auto border-gray-900 bg-gray-900 border-[14px] rounded-[2.5rem] h-[600px] w-[340px] shadow-2xl flex flex-col items-center hover:scale-[1.02] transition-transform duration-500">
                   {/* Notch / Camera / Sensors */}
                   <div className="h-[32px] w-[3px] bg-gray-800 absolute -start-[17px] top-[72px] rounded-s-lg"></div>
                   <div className="h-[46px] w-[3px] bg-gray-800 absolute -start-[17px] top-[124px] rounded-s-lg"></div>
@@ -129,7 +137,7 @@ const Home: React.FC = () => {
                 </div>
                 
                 {/* Decorative Elements around phone */}
-                <div className="absolute -z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[380px] h-[640px] bg-gradient-to-tr from-primary/30 to-accent/30 rounded-full blur-3xl opacity-50"></div>
+                <div className="absolute -z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[380px] h-[640px] bg-gradient-to-tr from-primary/30 to-accent/30 rounded-full blur-3xl opacity-50 animate-pulse"></div>
              </div>
 
              {/* Persuasive Text */}
@@ -206,7 +214,7 @@ const Home: React.FC = () => {
               },
             ].map((service, idx) => (
               <div key={idx} className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border-b-4 border-transparent hover:border-secondary group">
-                <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+                <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors group-hover:scale-110 duration-300">
                   {service.icon}
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
@@ -282,8 +290,8 @@ const Home: React.FC = () => {
       {/* Neighborhoods */}
       <section className="py-20 bg-gradient-to-br from-primary to-primaryDark text-white relative overflow-hidden">
         {/* Decorative background elements */}
-        <div className="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 bg-white/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-64 h-64 bg-accent/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 bg-white/5 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-64 h-64 bg-accent/10 rounded-full blur-3xl animate-float-delayed"></div>
         
         <div className="container mx-auto px-4 text-center relative z-10">
           <div className="inline-block p-4 rounded-full bg-white/10 mb-6 shadow-lg backdrop-blur-sm border border-white/10">
