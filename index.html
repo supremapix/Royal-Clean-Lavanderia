@@ -5,9 +5,13 @@
     <link rel="icon" type="image/svg+xml" href="https://lucide.dev/icons/shirt.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-    <!-- Google Fonts -->
+    <!-- Resource Hints -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS -->
@@ -17,10 +21,10 @@
         theme: {
           extend: {
             colors: {
-              primary: '#6a0dad', // Royal Purple
+              primary: '#6a0dad',
               primaryDark: '#4b0082',
-              secondary: '#ff8c00', // Orange
-              accent: '#ffd700', // Gold
+              secondary: '#ff8c00',
+              accent: '#ffd700',
               light: '#f8f9fa',
               dark: '#212529',
             },
@@ -77,28 +81,45 @@
       }
     </script>
     
-    <!-- Primary Meta Tags -->
-    <title>Royal Clean Lavanderias | Praticidade e Qualidade em Curitiba</title>
-    <meta name="title" content="Royal Clean Lavanderias | Lavagem a Seco e Passadoria">
-    <meta name="description" content="Royal Clean Lavanderias - Praticidade e Qualidade Perto de Você! Lavagem de edredons, ternos e roupas do dia a dia. Coleta e entrega grátis em diversos bairros.">
-    <meta name="keywords" content="lavanderia curitiba, royal clean, lavagem a seco, lavar edredom, passadoria, coleta e entrega">
+    <!-- Primary Meta Tags - Default (overridden by react-helmet-async) -->
+    <title>Royal Clean - Lavanderia Delivery Curitiba | Palladium</title>
+    <meta name="title" content="Royal Clean - Lavanderia Delivery Curitiba | Palladium">
+    <meta name="description" content="Royal Clean Lavanderias - Lavanderia delivery em Curitiba com coleta e entrega grátis. Perto do Shopping Palladium. Edredons, ternos e roupas do dia a dia.">
+    <meta name="keywords" content="lavanderia curitiba, lavanderia delivery, lavanderia palladium, royal clean, lavar edredom, passadoria, coleta e entrega">
+    <meta name="author" content="Royal Clean Lavanderias">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#6a0dad">
+    <meta name="msapplication-TileColor" content="#6a0dad">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.supremasite.com.br/">
-    <meta property="og:title" content="Royal Clean Lavanderias | Praticidade e Qualidade">
-    <meta property="og:description" content="Cuidamos das suas roupas com carinho. Especialistas em lavagem a seco e edredons. Atendemos Portão, Água Verde e região.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1545173168-9f1947eebb8f?q=80&w=1200&auto=format&fit=crop">
+    <meta property="og:url" content="https://www.royalcleanlavanderia.top/">
+    <meta property="og:title" content="Royal Clean - Lavanderia Delivery Curitiba | Palladium">
+    <meta property="og:description" content="Lavanderia delivery em Curitiba com coleta e entrega grátis. Perto do Shopping Palladium. Edredons, ternos e roupas.">
+    <meta property="og:image" content="https://www.royalcleanlavanderia.top/assets/images/Gemini_Generated_Image_eb069beb069beb06_1766159410252.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Royal Clean Lavanderias">
+    <meta property="og:locale" content="pt_BR">
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://www.supremasite.com.br/">
-    <meta property="twitter:title" content="Royal Clean Lavanderias | Praticidade e Qualidade">
-    <meta property="twitter:description" content="Cuidamos das suas roupas com carinho. Especialistas em lavagem a seco e edredons. Atendemos Portão, Água Verde e região.">
-    <meta property="twitter:image" content="https://images.unsplash.com/photo-1545173168-9f1947eebb8f?q=80&w=1200&auto=format&fit=crop">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.royalcleanlavanderia.top/">
+    <meta name="twitter:title" content="Royal Clean - Lavanderia Delivery Curitiba | Palladium">
+    <meta name="twitter:description" content="Lavanderia delivery em Curitiba com coleta e entrega grátis. Perto do Shopping Palladium.">
+    <meta name="twitter:image" content="https://www.royalcleanlavanderia.top/assets/images/Gemini_Generated_Image_eb069beb069beb06_1766159410252.png">
+
+    <!-- Geo Tags -->
+    <meta name="geo.region" content="BR-PR">
+    <meta name="geo.placename" content="Curitiba">
+    <meta name="geo.position" content="-25.4674;-49.2893">
+    <meta name="ICBM" content="-25.4674, -49.2893">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://www.supremasite.com.br/" />
+    <link rel="canonical" href="https://www.royalcleanlavanderia.top/" />
 
     <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">
@@ -106,13 +127,15 @@
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "Royal Clean Lavanderias",
+      "alternateName": "Lavanderia Palladium",
       "image": [
-        "https://images.unsplash.com/photo-1545173168-9f1947eebb8f?q=80&w=1200",
-        "https://images.unsplash.com/photo-1517677208171-0bc12f9ae190?q=80&w=1200"
+        "https://www.royalcleanlavanderia.top/assets/images/Gemini_Generated_Image_eb069beb069beb06_1766159410252.png",
+        "https://www.royalcleanlavanderia.top/assets/images/Gemini_Generated_Image_o6fqhjo6fqhjo6fq_1766159626826.png"
       ],
       "telephone": "+5541996962349",
-      "url": "https://www.supremasite.com.br/",
+      "url": "https://www.royalcleanlavanderia.top/",
       "priceRange": "$$",
+      "description": "Lavanderia delivery em Curitiba com coleta e entrega grátis. Próximo ao Shopping Palladium. Lavagem de edredons, ternos e roupas do dia a dia.",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "R. Ildefonso Stockler França, 299",
@@ -129,13 +152,7 @@
       "openingHoursSpecification": [
         {
           "@type": "OpeningHoursSpecification",
-          "dayOfWeek": [
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday"
-          ],
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
           "opens": "08:00",
           "closes": "19:00"
         },
@@ -146,20 +163,58 @@
           "closes": "14:00"
         }
       ],
+      "areaServed": [
+        {"@type": "City", "name": "Portão, Curitiba"},
+        {"@type": "City", "name": "Água Verde, Curitiba"},
+        {"@type": "City", "name": "Vila Izabel, Curitiba"},
+        {"@type": "City", "name": "Centro, Curitiba"},
+        {"@type": "City", "name": "Novo Mundo, Curitiba"},
+        {"@type": "City", "name": "Santa Quitéria, Curitiba"},
+        {"@type": "City", "name": "Guaíra, Curitiba"},
+        {"@type": "City", "name": "Parolin, Curitiba"},
+        {"@type": "City", "name": "Rebouças, Curitiba"},
+        {"@type": "City", "name": "Prado Velho, Curitiba"},
+        {"@type": "City", "name": "Lindóia, Curitiba"},
+        {"@type": "City", "name": "Hauer, Curitiba"},
+        {"@type": "City", "name": "Boqueirão, Curitiba"},
+        {"@type": "City", "name": "Seminário, Curitiba"},
+        {"@type": "City", "name": "Fanny, Curitiba"},
+        {"@type": "City", "name": "Fazendinha, Curitiba"},
+        {"@type": "City", "name": "Campo Comprido, Curitiba"}
+      ],
       "sameAs": [
         "https://www.facebook.com/royalclean",
         "https://www.instagram.com/royalclean"
-      ]
-    }
-    </script>
-    <script type="importmap">
-    {
-      "imports": {
-        "react": "https://aistudiocdn.com/react@^19.2.1",
-        "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
-        "react/": "https://aistudiocdn.com/react@^19.2.1/",
-        "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.10.1",
-        "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Serviços de Lavanderia",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Lavanderia Delivery",
+              "description": "Coleta e entrega grátis em Curitiba"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Lavagem a Seco",
+              "description": "Lavagem a seco para ternos, vestidos e tecidos delicados"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Lavagem de Edredons",
+              "description": "Higienização profunda de edredons e cobertores"
+            }
+          }
+        ]
       }
     }
     </script>
@@ -167,5 +222,16 @@
   <body class="bg-gray-50 text-gray-800 antialiased font-sans">
     <div id="root"></div>
     <script type="module" src="./index.tsx"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('/sw.js').then(function(registration) {
+            console.log('ServiceWorker registration successful');
+          }, function(err) {
+            console.log('ServiceWorker registration failed: ', err);
+          });
+        });
+      }
+    </script>
   </body>
 </html>

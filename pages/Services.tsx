@@ -1,60 +1,91 @@
 import React from 'react';
-import SEOHead from '../components/SEOHead';
-import { CheckCircle2, DollarSign, ArrowRight } from 'lucide-react';
+import EnhancedSEO from '../components/EnhancedSEO';
+import { CheckCircle2, DollarSign, ArrowRight, Truck, Sparkles, Shirt, Building2 } from 'lucide-react';
+import { staticRoutes } from '../config/routes';
 
 const Services: React.FC = () => {
   const whatsappLink = "https://wa.me/5541996962349?text=Ol%C3%A1%20achei%20seu%20*site%20no%20Google!*";
+  const servicesRoute = staticRoutes.find(r => r.path === '/servicos');
 
   const servicesList = [
     {
       title: "Lavagem a Seco (Dry Clean)",
-      description: "Processo especializado que utiliza solventes químicos ao invés de água. Ideal para ternos, blazers, vestidos de seda, lã e tecidos delicados.",
-      features: ["Preserva as fibras", "Evita encolhimento", "Remove manchas de óleo/gordura"],
-      image: "https://images.unsplash.com/photo-1582735689369-4fe89db7114c?q=80&w=800&auto=format&fit=crop"
+      description: "Processo especializado para ternos, blazers, vestidos de seda e tecidos delicados. Nossa lavanderia delivery busca e entrega suas peças prontas.",
+      features: ["Preserva as fibras do tecido", "Evita encolhimento", "Remove manchas de óleo e gordura"],
+      image: "/assets/images/Gemini_Generated_Image_o6fqhjo6fqhjo6fq_1766159626826.png"
     },
     {
       title: "Edredons e Cobertores",
-      description: "Higienização profunda para peças volumosas. Utilizamos máquinas industriais de grande capacidade e secagem controlada.",
-      features: ["Secagem total", "Anti-ácaros e fungos", "Embalagem pronta para guardar"],
-      image: "https://images.unsplash.com/photo-1517677208171-0bc12f9ae190?q=80&w=800&auto=format&fit=crop"
+      description: "Higienização profunda com máquinas industriais. Lavanderia delivery especializada em peças volumosas com secagem controlada.",
+      features: ["Secagem total garantida", "Anti-ácaros e fungos", "Embalagem pronta para guardar"],
+      image: "/assets/images/Gemini_Generated_Image_tgsnh9tgsnh9tgsn_1766159656837.png"
     },
     {
       title: "Passadoria Express",
-      description: "Entregamos suas roupas lisas, alinhadas e prontas para uso. Perfeito para camisas sociais e uniformes.",
+      description: "Camisas sociais e ternos alinhados para executivos. Nossa lavanderia Palladium atende profissionais da região com qualidade premium.",
       features: ["Camisas sociais impecáveis", "Vincos alinhados", "Cabides inclusos"],
-      image: "https://images.unsplash.com/photo-1489274495757-95c7c83700c0?q=80&w=800&auto=format&fit=crop"
+      image: "/assets/images/Gemini_Generated_Image_eb069beb069beb06_1766159410252.png"
     },
     {
       title: "Tapetes e Cortinas",
-      description: "Remoção de sujeira pesada, poeira e odores. Processo específico para cada tipo de material.",
+      description: "Remoção de sujeira pesada, poeira e odores. Lavanderia delivery com retirada e instalação opcional.",
       features: ["Retirada e instalação (consulte)", "Secagem em estufa", "Tratamento anti-odor"],
-      image: "https://images.unsplash.com/photo-1574519655906-695034c5478c?q=80&w=800&auto=format&fit=crop"
+      image: "/assets/images/Gemini_Generated_Image_o6fqhjo6fqhjo6fq_1766159626826.png"
     }
   ];
 
   return (
     <>
-      <SEOHead 
-        title="Nossos Serviços e Preços | Royal Clean" 
-        description="Confira nossos serviços: lavagem a seco, tapetes, cortinas, edredons e passadoria. Preços competitivos a partir de R$ 17,00." 
+      <EnhancedSEO 
+        title={servicesRoute?.title || "Serviços e Preços"}
+        description={servicesRoute?.description || "Lavagem a seco, edredons, tapetes e passadoria com coleta grátis."}
+        keywords={servicesRoute?.keywords}
+        canonical={servicesRoute?.canonical}
       />
       
       <div className="bg-gray-50 min-h-screen pb-20">
-        {/* Header */}
         <div className="bg-primary text-white py-16 relative overflow-hidden">
           <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
           <div className="container mx-auto px-4 text-center relative z-10">
-            <h1 className="text-4xl font-display font-bold mb-4">Nossos Serviços</h1>
-            <p className="text-blue-100 max-w-2xl mx-auto text-lg">Tecnologia de ponta aliada ao cuidado artesanal para garantir a maior durabilidade das suas peças.</p>
+            <h1 className="text-4xl font-display font-bold mb-4">Serviços de Lavanderia Delivery</h1>
+            <p className="text-blue-100 max-w-2xl mx-auto text-lg">
+              <strong>Lavanderia Palladium</strong> - Tecnologia de ponta aliada ao cuidado artesanal. 
+              Coleta e entrega grátis no Portão e região.
+            </p>
           </div>
         </div>
 
-        {/* Pricing Table Section */}
+        <div className="container mx-auto px-4 py-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+            <div className="bg-white p-6 rounded-xl shadow-md border-l-4 border-primary">
+              <div className="flex items-center gap-3 mb-3">
+                <Truck className="text-primary" size={24} />
+                <h3 className="font-bold text-lg">Lavanderia Delivery</h3>
+              </div>
+              <p className="text-gray-600 text-sm">Buscamos e entregamos suas roupas no conforto da sua casa. Coleta grátis em Curitiba!</p>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow-md border-l-4 border-secondary">
+              <div className="flex items-center gap-3 mb-3">
+                <Building2 className="text-secondary" size={24} />
+                <h3 className="font-bold text-lg">Lavanderia Palladium</h3>
+              </div>
+              <p className="text-gray-600 text-sm">Próximos ao Shopping Palladium, atendemos Portão, Água Verde e região com agilidade.</p>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow-md border-l-4 border-accent">
+              <div className="flex items-center gap-3 mb-3">
+                <Sparkles className="text-accent" size={24} />
+                <h3 className="font-bold text-lg">Qualidade Premium</h3>
+              </div>
+              <p className="text-gray-600 text-sm">Produtos biodegradáveis e máquinas de última geração para cuidar das suas roupas.</p>
+            </div>
+          </div>
+        </div>
+
         <div className="container mx-auto px-4 -mt-10 mb-20 relative z-20">
           <div className="bg-white rounded-2xl shadow-xl overflow-hidden max-w-4xl mx-auto border border-gray-100">
             <div className="bg-gradient-to-r from-primary to-secondary p-4 text-center">
               <h2 className="text-xl font-bold text-white flex items-center justify-center gap-2">
-                <DollarSign size={24} /> Tabela de Preços Referencial
+                <DollarSign size={24} /> Tabela de Preços - Lavanderia Delivery
               </h2>
             </div>
             
@@ -93,8 +124,12 @@ const Services: React.FC = () => {
           </div>
         </div>
 
-        {/* Detailed Services */}
         <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-display font-bold text-primary mb-4">Nossos Serviços em Detalhes</h2>
+            <p className="text-gray-600">Lavanderia delivery com qualidade profissional</p>
+          </div>
+          
           <div className="grid grid-cols-1 gap-12">
             {servicesList.map((service, index) => (
               <div key={index} className="bg-white rounded-2xl shadow-md overflow-hidden flex flex-col md:flex-row group hover:shadow-xl transition-shadow duration-300">
